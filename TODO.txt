@@ -1,0 +1,1 @@
+ source autonome_venv/Scripts/activate
