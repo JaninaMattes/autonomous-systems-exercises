@@ -3,6 +3,7 @@ import agent as a
 import matplotlib.pyplot as plot
 
 def episode(env, agent, nr_episode=0):
+    """Steht für genau einen Versuch."""
     state = env.reset()
     discounted_return = 0
     discount_factor = 0.99
@@ -25,12 +26,12 @@ params = {}
 env = rooms.load_env("layouts/rooms_9_9_4.txt", "rooms.mp4")
 params["nr_actions"] = env.action_space.n
 params["gamma"] = 0.99
-params["horizon"] = 10
+params["horizon"] = 10 # numpy argmax --> bricht den Teil indem erstes Element heraus genommen wird
 params["simulations"] = 100
 params["env"] = env
 
-agent = a.RandomAgent(params)
-#agent = a.MonteCarloRolloutPlanner(params)
+# agent = a.RandomAgent(params)
+agent = a.MonteCarloRolloutPlanner(params)
 training_episodes = 10
 returns = [episode(env, agent, i) for i in range(training_episodes)]
 
