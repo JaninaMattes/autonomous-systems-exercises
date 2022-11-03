@@ -1,1 +1,1 @@
-source autonome_venv3.9/Scripts/activate
+source asp_venv_3.9/Scripts/activate
